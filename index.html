@@ -1,0 +1,53 @@
+<!DOCTYPE>
+
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="simoncss.css">
+        <script src="https://code.angularjs.org/1.4.8/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script>
+    </head>
+        <body ng-app='simonApp'>
+          <div ng-controller='maincon'>
+            <div class='innercircle'>
+              <h1>Simon<label>&reg;</label></h1>
+              <div>
+                <!--Depending on ng-if it shows horizontal line step number-->
+                <div class='innercontent'>
+                  <div class='contentdivs' id='counterdiv'><div ng-if='showhr===true'><p id='parincountdiv'><hr ng-class="varofcount">&nbsp;<hr ng-class="varofcount"></p></div><div ng-if='showhr===false'><p id='parfornumsincountdiv'>{{showwhichstep}}</p></div></div> 
+                  <div><p style='margin:0'>COUNT</p></div>
+                </div>
+                <!--toggles color of start button giving classes which assigned to varofstart variable-->
+                <div class='innercontent'>
+                  <div class='contentdivs btns' ng-click='toggleColorofStart()' ng-class="varofstart"></div>
+                  <div><p style='margin:0'>START</p></div>
+                </div>
+                 <!--toggles color of strict button giving classes which assigned to varofstart variable-->
+                <div class='innercontent'>
+                  <div class='contentdivs btns' ng-click='toggleColorofStrict()' ng-class="varofstrict"></div>
+                  <div><p style='margin:0'>STRICT</p></div>
+                </div>
+              </div><br>
+              <div>
+                 <!--slide button-->
+                <div class="onoffswitch">
+                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-click='toggleSlideButton()'>
+                  <label class="onoffswitch-label" for="myonoffswitch">
+                    <span class="onoffswitch-inner"></span>
+                    <span class="onoffswitch-switch"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class='innercircleforcover'></div>
+             <!--when button is clicked it passes audioid, btnid, color, corresponding number and srcid values which will be used in play function-->
+            <div class='maincircle'>
+                <div class='button btn1' ng-click="play('aud1id','bt1id','#33ff33','1','src1')" id='bt1id'><audio preload id='aud1id'><source id='src1' src='https://s3.amazonaws.com/freecodecamp/simonSound1.mp3' type="audio/mpeg"/></audio></div>
+                <div class='button btn2' ng-click="play('aud2id','bt2id','#ff3333','2','src2')" id='bt2id'><audio preload id='aud2id'><source id='src2' src='https://s3.amazonaws.com/freecodecamp/simonSound2.mp3' type="audio/mpeg"/></audio></div> 
+                <div class='button btn3' ng-click="play('aud3id','bt3id','#ffff33','3','src3')" id='bt3id'><audio preload id='aud3id'><source id='src3' src='https://s3.amazonaws.com/freecodecamp/simonSound3.mp3' type="audio/mpeg"/></audio></div>
+                <div class='button btn4' ng-click="play('aud4id','bt4id','#3333ff','4','src4')" id='bt4id'><audio preload id='aud4id'><source id='src4' src='https://s3.amazonaws.com/freecodecamp/simonSound4.mp3' type="audio/mpeg"/></audio><audio preload id='error'><source src='https://www.dropbox.com/s/vup5fyh2ih01qw2/78868__jojokyra__min5.mp3?raw=1' type="audio/mpeg"/></audio></audio><audio preload id='winner'><source src='https://www.dropbox.com/s/vzdjhuxt5efqwus/167535__mojomills__01-winner.mp3?raw=1' type="audio/mpeg"/></audio></div>   
+            </div>
+          </div>
+          <script src="simonjs.js"></script>
+    </body>  
+</html>
